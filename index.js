@@ -1,7 +1,7 @@
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
 for (var i = 0; i < numberOfDrumButtons; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+  document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     var buttonInnerHTML = this.innerHTML;
     makeSound(buttonInnerHTML);
     buttonAnimation(buttonInnerHTML);
@@ -9,7 +9,7 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
 }
 
 document.addEventListener("keydown", (event) => {
-  makeSound(event.key);
+  makeSound(event.key); // event merupakan sebuah object yang di dalamnya terdapat key bernama "key" yang menyimpan value key yang ditekan
   buttonAnimation(event.key);
 });
 
@@ -52,16 +52,16 @@ const makeSound = (key) => {
       kick.play();
       break;
 
-    default: 
-        console.log(key);
-
+    default:
+      console.log(key);
+      break;
   }
 }
 
 function buttonAnimation(currentKey) {
   var activeButton = document.querySelector("." + currentKey);
   activeButton.classList.add("pressed");
-  setTimeout(function() {
+  setTimeout(() => {
     activeButton.classList.remove("pressed");
   }, 100);
 }
