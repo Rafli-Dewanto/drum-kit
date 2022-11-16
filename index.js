@@ -58,7 +58,7 @@ const makeSound = (key) => {
   }
 }
 
-function buttonAnimation(currentKey) {
+const buttonAnimation = (currentKey) => {
   var activeButton = document.querySelector("." + currentKey);
   activeButton.classList.add("pressed");
   setTimeout(() => {
